@@ -1,0 +1,25 @@
+{
+  "name": "map",
+  "version": "1.0.0",
+  "description": "map used to show the way on my father's funeral day",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+ssh://git@github.com/marnelfr/father-map.git"
+  },
+  "keywords": [
+    "map"
+  ],
+  "author": "Marnel Ginola <marnelginola@gmai.com>",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/marnelfr/father-map/issues"
+  },
+  "homepage": "https://github.com/marnelfr/father-map#readme",
+  "dependencies": {
+    "google-map-marker": "^1.2.3"
+  }
+}

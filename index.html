@@ -1,0 +1,129 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Simple Map</title>
+  <script src="https://polyfill.io/v3/polyfill.min.js?features=default"></script>
+  <!-- jsFiddle will insert css and js -->
+
+  <style>
+    /* Always set the map height explicitly to define the size of the div
+       * element that contains the map. */
+    #map {
+      height: 100%;
+    }
+
+    /* Optional: Makes the sample page fill the window. */
+    html,
+    body {
+      height: 100%;
+      margin: 0;
+      padding: 0;
+    }
+  </style>
+</head>
+<body>
+<div id="map"></div>
+
+<!-- Async script executes immediately and must be after any DOM elements used in callback. -->
+<script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyB41DRUbKWJHPxaFjMAwdrzWzbVKartNGg&callback=initMap&v=weekly&channel=2"></script>
+
+<script language="JavaScript">
+  let map;
+
+  function initMap() {
+    map = new google.maps.Map(document.getElementById("map"), {
+      center: new google.maps.LatLng(6.389957, 2.299649),
+      zoom: 18,
+    });
+
+    const iconBase = "img/";
+    const data = {
+      chimene:  {
+        icon: iconBase + "chimene.png",
+        position: new google.maps.LatLng(6.390235, 2.298989),
+        title: "",
+        url: "https://maps.google.com/?q=6.390235,2.298989"
+      },
+      nice:  {
+        icon: iconBase + "nice.png",
+        position: new google.maps.LatLng(6.389606, 2.298694),
+        title: "",
+        url: "https://maps.google.com/?q=6.389606,2.298694"
+      },
+      mellique:  {
+        icon: iconBase + "mellique.png",
+        position: new google.maps.LatLng(6.390149, 2.299166),
+        title: "",
+        url: "https://maps.google.com/?q=6.390149,2.299166"
+      },
+      frida:  {
+        icon: iconBase + "frida.png",
+        position: new google.maps.LatLng(6.390043, 2.298876),
+        title: "",
+        url: "https://maps.google.com/?q=6.390043,2.298876"
+      },
+      marnel:  {
+        icon: iconBase + "marnel.png",
+        position: new google.maps.LatLng(6.390165, 2.299290),
+        title: "Bache de reception de Marnel",
+        label: "Bache Marnel",
+        url: "https://maps.google.com/?q=6.390165,2.299290"
+      },
+      romulus:  {
+        icon: iconBase + "romulus.png",
+        position: new google.maps.LatLng(6.389739, 2.299606),
+        title: "",
+        url: "https://maps.google.com/?q=6.389739,2.299606"
+      },
+      dah:  {
+        icon: iconBase + "dah.png",
+        position: new google.maps.LatLng(6.390064, 2.299805),
+        title: "",
+        url: "https://maps.google.com/?q=6.390064,2.299805"
+      },
+      daniel:  {
+        icon: iconBase + "daniel.png",
+        position: new google.maps.LatLng(6.390261, 2.299171),
+        title: "",
+        url: "https://maps.google.com/?q=6.390261,2.299171"
+      },
+      principal:  {
+        icon: iconBase + "principal.png",
+        position: new google.maps.LatLng(6.389936, 2.299708),
+        title: "",
+        url: "https://maps.google.com/?q=6.389936,2.299708"
+      }
+    };
+
+    const features = [
+      data.chimene,
+      data.nice,
+      data.mellique,
+      data.frida,
+      data.marnel,
+      data.romulus,
+      data.daniel,
+      data.dah,
+      data.principal
+    ];
+
+    // Create markers.
+    for (let i = 0; i < features.length; i++) {
+      const marker = new google.maps.Marker({
+        position: features[i].position,
+        icon: features[i].icon,
+        map: map,
+        url: features[i].url,
+      });
+
+      google.maps.event.addListener(marker, 'click', function() {
+        window.location.href = marker.url;
+      });
+    }
+
+  }
+  initMap()
+</script>
+
+</body>
+</html>
